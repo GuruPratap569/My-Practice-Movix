@@ -13,12 +13,12 @@ const HeroBanner = () => {
     const [query, setQuery] = useState("")
     const navigate = useNavigate()
 
-    const { url } = useSelector((state) => state.home)
+    const { url } = useSelector((state) => state.home) /*not used by me*/
 
     const {data, loading} = useFetch("/movie/upcoming")
 
     useEffect(()=> {
-      const bg = url.backdrop + data?.results[Math.floor(Math.random()*20)]?.backdrop_path;
+      const bg = "https://image.tmdb.org/t/p/original" + data?.results[Math.floor(Math.random()*20)]?.backdrop_path;
       setBackground(bg)
     },[data])
 
